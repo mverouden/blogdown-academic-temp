@@ -14,22 +14,68 @@ subtitle = ""
 # 
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
 
-[[feature]]
-  icon = "r-project"
-  icon_pack = "fab"
-  name = "R"
-  description = "90%"
-  
+# [[feature]]
+#   icon = "r-project"
+#   icon_pack = "fab"
+#   name = "R"
+#   description = "90%"
+#   
+# [[feature]]
+#   icon = "chart-line"
+#   icon_pack = "fas"
+#   name = "Statistics"
+#   description = "100%"  
+#   
+# [[feature]]
+#   icon = "camera-retro"
+#   icon_pack = "fas"
+#   name = "Photography"
+#   description = "10%"
+
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
   name = "Statistics"
-  description = "100%"  
-  
+  description = "92%"
+
 [[feature]]
-  icon = "camera-retro"
-  icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  icon = "r-project"
+  icon_pack = "fab"
+  name = "R"
+  description = "95%"
+
+[[feature]]
+  icon = "windows"
+  icon_pack = "fab"
+  name = "Windows 10"
+  description = "93%"
+
+[[feature]]
+  icon = "apple"
+  icon_pack = "fab"
+  name = "macOS"
+  description = "95%"
+
+[[feature]]
+  icon = "linux"
+  icon_pack = "fab"
+  name = "Linux"
+  description = "95%"
+
+# Uncomment to use emoji icons.
+# [[feature]]
+#  icon = ":smile:"
+#  icon_pack = "emoji"
+#  name = "Emojiness"
+#  description = "100%"  
+
+# Uncomment to use custom SVG icons.
+# Place custom SVG icon in `assets/images/icon-pack/`, creating folders if necessary.
+# Reference the SVG icon name (without `.svg` extension) in the `icon` field.
+# [[feature]]
+#  icon = "your-custom-icon-name"
+#  icon_pack = "custom"
+#  name = "Surfing"
+#  description = "90%"
 
 +++
