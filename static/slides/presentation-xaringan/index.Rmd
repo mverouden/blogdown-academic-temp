@@ -1,53 +1,134 @@
 ---
-# TITLE SLIDE INFORMATION
-title: "Presentation Ninja"
-subtitle: "⚔<br/>with xaringan"
-author: "Yihui Xie"
-institute: "RStudio, Inc."
-date: "2016/12/12 (updated: `r Sys.Date()`)"
+title: "Presentation Title"
+subtitle: "Subtitle"
+author: "Author, First & Co-author, First"
+institute: "Wageningen University & Research | Biometris"
+date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   xaringan::moon_reader:
-    css: [default, rladies, rladies-fonts, ./mycustom.css]
+    css: [default, css/wur.css, css/wur-fonts.css]
     lib_dir: libs
-    # yolo: true
+    yolo: false
     nature:
+      beforeInit: "js/macros.js"
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
+    seal: false
 ---
 
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-
-```{r setup, include=FALSE}
+```{r label="setup", include=FALSE}
 options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE,
+                      echo = TRUE,
+                      eval = TRUE,
+                      comment = "",
+                      fig.retina = 3)
 ```
 
-???
+layout: true
+class: white-slides
 
-Slide 1 Notes
-
-Image credit: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sharingan_triple.svg)
+<div class="my-footer"><span>Week 1 Lesson 1</span></div>
 
 ---
-class: center, middle
+class: title-slide, left, top
+
+# Week 1 Lesson 1
+
+## Getting Started
+
+#### Sabine Schnabel & Maikel Verouden | Biometris | `r Sys.Date()`
+<!-- You are allowed to change style/img/600x600.jpg for something else -->
+<img src="style/img/600x600.jpg" class="circle" style="width:300px; position:absolute; bottom:80px; left:80px">
+<!-- Do not change the images below, these are part of the WUR in-house style -->
+<img src="style/img/voeding-voedselprod_V.jpg" class="circle" style="width:300px; position:absolute; bottom:80px; left:830px">
+<img src="style/img/leefomgeving_V.jpg" class="circle" style="width:300px; position:absolute; bottom:80px; left:623px">
+<img src="style/img/gezondh-leefst-levensomst_V.jpg" class="circle" style="width:300px; position:absolute; bottom:80px; left:417px">
+
+<img src="style/logo/biometris_logo.png" style="height:70px; position:absolute; bottom:0px; right:80px">
+
+<!-- this ends up being the title slide since seal = FALSE-->
+
+---
+class: inverse, left, top
 
 # xaringan
 
-### /ʃaː.'riŋ.ɡan/
+```{r echo=FALSE, eval=TRUE}
+library(emo)
+library(fontawesome)
+```
+
+.left-column[
+
+## `r emo::ji("confused")`
+
+## `r fa(name = "r-project")`
+
+]
+
+.right-column[
+## /ʃæ.'riŋ.ɡæn/
+
+[`r fa(name = "paper-plane")` maikel.verouden@wur.nl](mailto:maikel.verouden@wur.nl)
+]
 
 ---
-class: inverse, center, middle
+class: inverse, left, top
+
+# Scaled images
+
+
+
+.center[
+  ![:scale 25%](img/xaringan.png)
+]
+
+---
+class: gray-slides, left, middle
 
 # Get Started
 
+.pull-left[
+Here is some text formatted in `HTML5`:
+
+<ul>
+  <li>Coffee</li>
+  <ul>
+    <li>Filter</li>
+    <li>Nespresso</li>
+    <ul>
+      <li>Lungo</li>
+      <li>Espresso</li>
+      <li>Ristretto</li>
+    </ul>
+  </ul>
+  <li>Tea</li>
+</ul>
+]
+
+.pull-right[
+Here is the same in `markdown`:
+
+* Coffee
+    - Filter
+    - Nepresso
+        + Lungo
+        + Espresso
+        + Ristretto
+* Tea
+]
 ---
+class: green-slides, left, top
 
 # Hello World
 
 Install the **xaringan** package from [Github](https://github.com/yihui/xaringan):
 
-```{r eval=FALSE, tidy=FALSE}
+```{r label="install-xaringan", eval=FALSE, tidy=FALSE}
 devtools::install_github("yihui/xaringan")
 ```
 
@@ -66,18 +147,20 @@ You are recommended to use the [RStudio IDE](https://www.rstudio.com/products/rs
 - or use the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides (every time you update and save the Rmd document, the slides will be automatically reloaded in RStudio Viewer.
 
 .footnote[
-[1] 中文用户请看[这份教程](http://slides.yihui.name/xaringan/zh-CN.html)
+[1] 中文用户请看[这份教程](https://slides.yihui.org/xaringan/zh-CN.html)
 
 [2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
 ]
 
 ---
+class: image-slides, top, left
 background-image: url(`r xaringan:::karl`)
 background-position: 50% 50%
-class: center, bottom, inverse
+background-size: cover
 
---
 # You only live once!
+
+<img src="style/background/WUR_WHW_bar.png" style="position:absolute; bottom:0%; left:0%;">
 
 ---
 
@@ -90,10 +173,6 @@ As a presentation ninja, you certainly should not be satisfied by the "Hello Wor
 1. The **xaringan** package;
 
 Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
-
-<div class="image-cropper">
-    <img src="images/food.jpg" class="rounded" />
-</div>
 
 ---
 
@@ -114,14 +193,17 @@ It is important to be familiar with remark.js before you can understand the opti
 .footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
 
 ---
+class: image-slides, center, bottom
 background-image: url(`r xaringan:::karl`)
+background-position: 50% 50%,
 background-size: cover
-class: center, bottom, inverse
 
-# I was so happy to have discovered remark.js!
+### I was so happy to have discovered remark.js!
+
+<img src="style/background/WUR_WHW_bar.png" style="position:absolute; bottom:0%; left:0%;">
 
 ---
-class: inverse, middle, center
+class: gray-slides, middle, center
 
 # Using xaringan
 
@@ -204,7 +286,7 @@ Limitations:
 
 # R Code
 
-```{r comment='#'}
+```{r label="r-code"}
 # a boring regression
 fit = lm(dist ~ 1 + speed, data = cars)
 coef(summary(fit))
@@ -216,7 +298,7 @@ grep('天', dojutsu, value = TRUE)
 
 # R Plots
 
-```{r cars, fig.height=4, dev='svg'}
+```{r label="cars", fig.height=4, dev="svg", fig.align="center"}
 par(mar = c(4, 4, 1, .1))
 plot(cars, pch = 19, col = 'darkgray', las = 1)
 abline(fit, lwd = 2)
@@ -228,8 +310,8 @@ abline(fit, lwd = 2)
 
 If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
 
-```{r}
-knitr::kable(head(iris), format = 'html')
+```{r label="iris-table", echo=TRUE, eval=TRUE}
+knitr::kable(head(iris), format = "html")
 ```
 
 ---
@@ -244,35 +326,25 @@ See the next page for two HTML widgets.
 
 ---
 
-```{r out.width='100%', fig.height=6, eval=require('leaflet')}
+```{r label="leaflet-map", out.width="100%", fig.height=6, eval=require("leaflet")}
 library(leaflet)
 leaflet() %>% addTiles() %>% setView(-93.65, 42.0285, zoom = 17)
 ```
 
 ---
 
-```{r eval=require('DT'), tidy=FALSE}
+# Data Table
+
+```{r label="iris-data-table", eval=require("DT"), tidy=FALSE, echo=FALSE}
 DT::datatable(
   head(iris, 10),
-  fillContainer = FALSE, options = list(pageLength = 6)
+  fillContainer = FALSE, options = list(pageLength = 8)
 )
 ```
 
 ---
 
 # Some Tips
-
-- When you use the "Infinite Moon Reader" addin in RStudio, your R session will be blocked by default. You can click the red button on the right of the console to stop serving the slides, or use the _daemonized_ mode so that it does not block your R session. To do the latter, you can set the option
-
-    ```r
-    options(servr.daemon = TRUE)
-    ```
-    
-    in your current R session, or in `~/.Rprofile` so that it is applied to all future R sessions. I do the latter by myself.
-    
-    To know more about the web server, see the [**servr**](https://github.com/yihui/servr) package.
-
---
 
 - Do not forget to try the `yolo` option of `xaringan::moon_reader`.
 
@@ -295,7 +367,20 @@ DT::datatable(
           autoplay: 30000
     ```
 
---
+- If you want to restart the play after it reaches the last slide, you may set the sub-option `loop` to TRUE, e.g.,
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay:
+            interval: 30000
+            loop: true
+    ```
+
+---
+
+# Some Tips
 
 - A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
 
@@ -337,7 +422,7 @@ DT::datatable(
 
 # Some Tips
 
-- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.name/xaringan/incremental.html) for examples.
+- There are several ways to build incremental slides. See [this presentation](https://slides.yihui.org/xaringan/incremental.html) for examples.
 
 - The option `highlightLines: true` of `nature` will highlight code lines that start with `*`, or are wrapped in `{{ }}`, or have trailing comments `#<<`;
 
@@ -351,9 +436,9 @@ DT::datatable(
     See examples on the next page.
 
 ---
+class: blue-slides
 
 # Some Tips
-
 
 .pull-left[
 An example using a leading `*`:
@@ -394,6 +479,7 @@ It is valid R code so you can run it. Note that `{{}}` can wrap an R expression 
 ]
 
 ---
+class: inverse
 
 # Some Tips
 
@@ -431,7 +517,7 @@ head(iris)
 ```
 ````
 
-```{r, highlight.output=c(1, 3), echo=FALSE}
+```{r label="head-iris", highlight.output=c(1, 3), echo=FALSE}
 head(iris)
 ```
 
@@ -447,11 +533,11 @@ Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about
 
 - Then change the `chakra` option in YAML to point to this file, e.g.
 
-    ```yaml
+  ```yaml
     output:
       xaringan::moon_reader:
         chakra: libs/remark-latest.min.js
-    ```
+  ```
 
 - If you used Google fonts in slides (the default theme uses _Yanone Kaffeesatz_, _Droid Serif_, and _Source Code Pro_), they won't work offline unless you download or install them locally. The Heroku app [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts) can help you download fonts and generate the necessary CSS.
 
@@ -461,24 +547,24 @@ Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about
 
 - remark.js [allows users to define custom macros](https://github.com/yihui/xaringan/issues/80) (JS functions) that can be applied to Markdown text using the syntax `![:macroName arg1, arg2, ...]` or `![:macroName arg1, arg2, ...](this)`. For example, before remark.js initializes the slides, you can define a macro named `scale`:
 
-    ```js
-    remark.macros.scale = function (percentage) {
-      var url = this;
-      return '<img src="' + url + '" style="width: ' + percentage + '" />';
-    };
-    ```
+```js
+remark.macros.scale = function (percentage) {
+  var url = this;
+  return '<img src="' + url + '" style="width: ' + percentage + '" />';
+};
+```
 
-    Then the Markdown text
+Then the Markdown text
 
-    ```markdown
-    ![:scale 50%](image.jpg)
-    ```
+```markdown
+![:scale 50%](image.jpg)
+```
 
-    will be translated to
+will be translated to
     
-    ```html
-    <img src="image.jpg" style="width: 50%" />
-    ```
+```html
+<img src="image.jpg" style="width: 50%" />
+```
 
 ---
 
@@ -486,14 +572,14 @@ Question: what does `highlight.output = c(TRUE, FALSE)` mean? (Hint: think about
 
 - To insert macros in **xaringan** slides, you can use the option `beforeInit` under the option `nature`, e.g.,
 
-    ```yaml
-    output:
-      xaringan::moon_reader:
+  ```yaml
+  output:
+    xaringan::moon_reader:
         nature:
-          beforeInit: "macros.js"
-    ```
+            beforeInit: "macros.js"
+  ```
 
-    You save your remark.js macros in the file `macros.js`.
+You save your remark.js macros in the file `macros.js`.
 
 - The `beforeInit` option can be used to insert arbitrary JS code before `remark.create()`. Inserting macros is just one of its possible applications.
 
@@ -535,7 +621,7 @@ See [yihui/xaringan#83](https://github.com/yihui/xaringan/issues/83) for an exam
 
 Don't want to learn CSS? Okay, you can use some user-contributed themes. A theme typically consists of two CSS files `foo.css` and `foo-fonts.css`, where `foo` is the theme name. Below are some existing themes:
 
-```{r}
+```{r, R.options=list(width = 70)}
 names(xaringan:::list_css())
 ```
 
@@ -551,21 +637,23 @@ output:
     css: [default, metropolis, metropolis-fonts]
 ```
 
-If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.name/en/2017/10/xaringan-themes).
+If you want to contribute a theme to **xaringan**, please read [this blog post](https://yihui.org/en/2017/10/xaringan-themes).
 
 ---
-class: inverse, middle, center
+class: blue-slides, middle, center
 background-image: url(https://upload.wikimedia.org/wikipedia/commons/3/39/Naruto_Shiki_Fujin.svg)
+background-position: center
 background-size: contain
 
 # Naruto
 
+<img src="style/background/WUR_WHW_bar.png" style="position:absolute; bottom:0%; left:0%;">
+
 ---
-background-image: url(https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg)
-background-size: 100px
-background-position: 90% 8%
 
 # Sharingan
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Sharingan_triple.svg" width=100 height=100 style="position:absolute; top:6.7%; right: 9.2%;">  
 
 The R package name **xaringan** was derived<sup>1</sup> from **Sharingan**, a dōjutsu in the Japanese anime _Naruto_ with two abilities:
 
@@ -589,17 +677,17 @@ I think a presentation is basically a way to communicate insights to the audienc
 
 The **xaringan** package borrowed a few terms from Naruto, such as
 
-- [Sharingan](http://naruto.wikia.com/wiki/Sharingan) (写輪眼; the package name)
+- [Sharingan](https://naruto.fandom.com/wiki/Sharingan) (写輪眼; the package name)
 
-- The [moon reader](http://naruto.wikia.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
+- The [moon reader](https://naruto.fandom.com/wiki/Moon_Reader) (月読; an attractive R Markdown output format)
 
-- [Chakra](http://naruto.wikia.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
+- [Chakra](https://naruto.fandom.com/wiki/Chakra) (查克拉; the path to the remark.js library, which is the power to drive the presentation)
 
-- [Nature transformation](http://naruto.wikia.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
+- [Nature transformation](https://naruto.fandom.com/wiki/Nature_Transformation) (性質変化; transform the chakra by setting different options)
 
-- The [infinite moon reader](http://naruto.wikia.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
+- The [infinite moon reader](https://naruto.fandom.com/wiki/Infinite_Tsukuyomi) (無限月読; start a local web server to continuously serve your slides)
 
-- The [summoning technique](http://naruto.wikia.com/wiki/Summoning_Technique) (download remark.js from the web)
+- The [summoning technique](https://naruto.fandom.com/wiki/Summoning_Technique) (download remark.js from the web)
 
 You can click the links to know more about them if you want. The jutsu "Moon Reader" may seem a little evil, but that does not mean your slides are evil.
 
@@ -611,14 +699,21 @@ class: center
 
 Press `h` or `?` to see the possible ninjutsu you can use in remark.js.
 
-![](https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg)
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Mudra-Naruto-KageBunshin.svg" alt="Hand seals" width="350px">
 
 ---
+class: left, top
 
-class: center, middle
-
+.pull-left[
 # Thanks!
 
 Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
 
-The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](https://yihui.org/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+]
+
+.pull-right[
+
+<img src="img/questions.gif" class="circle" style="width:800px">
+
+]

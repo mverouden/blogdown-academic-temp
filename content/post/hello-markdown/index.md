@@ -1,19 +1,21 @@
 ---
-authors:
-- admin
-categories: ["R"]
-date: "2015-07-23T21:13:14-07:00"
-draft: true
-featured: false
+title: "Hello Markdown with R"
+categories: R
+date: '2015-07-23T21:13:14-07:00'
+draft: yes
+featured: no
 image:
   caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/cfDrdaslu7o)'
-  focal_point: ""
-  preview_only: false
+  focal_point: ''
+  preview_only: no
 projects: []
-subtitle: "Create a simple Markdown post with R code in under 10 minutes :smile:"
+subtitle: 'Create a simple Markdown post with R code in under 10 minutes :smile:'
 summary: Creating simple markdown posts
-tags: ["R Markdown", "plot", "regression"]
-title: "Hello Markdown with R"
+tags:
+- R Markdown
+- plot
+- regression
+authors: admin
 ---
 
 # R Markdown

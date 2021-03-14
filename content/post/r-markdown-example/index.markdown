@@ -63,7 +63,7 @@ pie(
 ```
 
 <div class="figure">
-<img src="/post/r-markdown-example/index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
+<img src="{{< blogdown/postref >}}index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
 <p class="caption">Figure 1: A fancy pie chart.</p>
 </div>
 
